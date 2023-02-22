@@ -1,0 +1,66 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()"> 
+    
+    <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+       <!-- <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com"> --> <!--SUSTIOTUYO ESTE por el nuestro abajo -->
+       <input matInput formControlName="name" placeholder="nombre"/><!-- meot el nuestro  --><!--esto va a nusetro fomrprodcuto formluario padre y va a name, a control name y pregunta si tiene el error requieredio " required "  -->
+        <mat-error *ngIf="productForm.get('name')?.hasError('required') ">
+            Este campo es obligatorio 
+        </mat-error>
+        <!-- <mat-error *ngIf="emailFormControl.hasError('required')">  (ESTE NO lo neceistar) 
+          Email is <strong>required</strong> (ESTE NO lo neceistar)  
+        </mat-error> --> 
+      </mat-form-field>
+
+  
+
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Precio</mat-label>
+       <input matInput formControlName="price" placeholder="precio"/>
+        <mat-error *ngIf="productForm.get('price')?.hasError('required') "> <!-- en name tenemos que poner price? -->
+            Este campo es obligatorio 
+        </mat-error>
+      </mat-form-field>
+
+
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Estrellas</mat-label>
+       <input matInput formControlName="stars" placeholder="estrellas"/>
+        <mat-error *ngIf="productForm.get('stars')?.hasError('required') "> <!-- en name tenemos que poner price? -->
+            Este campo es obligatorio 
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Url iamgen</mat-label>
+       <input matInput formControlName="image" placeholder="url imagen"/>
+        <mat-error *ngIf="productForm.get('stars')?.hasError('required') "> <!-- en name tenemos que poner price? -->
+            Este campo es obligatorio 
+        </mat-error>
+      </mat-form-field>
+
+
+       <!-- (COMENTAMOS NUESTR BOTON PARA USAR EL DE LA LIBREARI ABAHO ) 
+        <button type="submit"> Agregar  </button> -->
+
+       <button mat-stroked-button color="primary">Agregar</button> 
+
+      <!-- ahora tenemos que copiar el de arriba y hacerlo en todos   -->
+
+      <!--  ESTE ES EL FORM DE JOSE --------------------
+    <input   formControlName="name" placeholder="name"/>
+   se ponen las missmas variables, no invetemos, titulo , author ,cover ,company 
+    <input formControlName="author" placeholder="author"/>
+    <input formControlName="image" placeholder="image"/>
+    <input formControlName="price" placeholder="price"/>
+  -->
+  <!-- <button type="submit"> Agregar  </button> -->
+   
+   </form>
+   
+
+   <app-details [product]="newProduct"> </app-details>
+   
+   <pre> {{productForm.value  | json}} </pre>
